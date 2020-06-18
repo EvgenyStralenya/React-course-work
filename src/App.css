@@ -1,0 +1,47 @@
+.App {
+  display: flex;
+  max-width: 1200px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 15% 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.header:before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 300%;
+  top: -100%;
+  left: -50%;
+  z-index: -1;
+  background-image:url('https://worldluxrealty.com/sites/default/files/inline/images/krasivie_filmi_2018_krasivoe_kino.jpg');
+  background-size: contain;
+  -webkit-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+
+.header .logo {
+  text-transform: lowercase;
+  color: red;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.header span {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
