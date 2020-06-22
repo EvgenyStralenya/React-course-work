@@ -7,6 +7,10 @@
 	cursor: pointer;
 }
 
+.button:hover {
+	transform: scale(1.1);
+}
+
 .searchOptionsButton {
 	background-color: grey;
 	height: 20px;
@@ -17,13 +21,18 @@
 }
 
 .sortOptionsButton {
-	background-color: green;
+	height: 20px;
+	transition: 0.3s;
+	text-transform: lowercase;
+	padding: 2px 15px;
+	color: black;	
 }
 
 .searchButton {
 	background-color: red;
 	text-transform: uppercase;
 	padding: 5px 70px;
+	transition: 0.3s;
 }
 
 .activeButton {

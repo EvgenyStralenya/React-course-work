@@ -1,16 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { MoviesItem } from '../MoviesItem';
+import { GET_MOVIE_REQUEST } from '../../store/actions';
 import styles from './styles.module.css';
 
 export const MoviesContainer = () => {
-  const title = 'The Adventures of Ichabod and Mr. Toad';
-  const releaseDate = '1949-10-05';
-  const poster = 'https://image.tmdb.org/t/p/w500/o6GfVkgPaaHJnXNywDLpHJII2tW.jpg';
-  const genres = ['Horror', 'Fantasy', 'Animation', 'Family'];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: GET_MOVIE_REQUEST });
+  }, [dispatch]);
+
+  const dataMovies = useSelector((state) => state.dataMovies);
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
+
+  const renderLoading = () => {
+    return (<div className={styles.container}>LOADING...</div>);
+  };
+  const renderFailure = () => {
+    return (<div className={styles.container}>{error}</div>);
+  };
+
+  const renderMain = () => {
+    return (
+      <div className={styles.container}>
+        {
+      dataMovies.map(({
+        id, title, release_date, poster_path, genres,
+      }) => {
+        return <MoviesItem key={id} title={title} releaseDate={release_date} poster={poster_path} genres={genres} />;
+      })
+    }
+
+      </div>
+    );
+  };
+
   return (
-    <div className={styles.container}>
-      <MoviesItem title={title} releaseDate={releaseDate} poster={poster} genres={genres} />
-      <MoviesItem title={title} releaseDate={releaseDate} poster={poster} genres={genres} />
+    <div>
+      {
+        loading ? renderLoading() : error ? renderFailure() : renderMain()
+      }
+
     </div>
+
   );
 };

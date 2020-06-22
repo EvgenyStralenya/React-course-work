@@ -1,0 +1,13 @@
+.container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 15px 15%;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+  
+.container .logo {
+	text-transform: lowercase;
+	color: red;
+	font-weight: 700;
+}

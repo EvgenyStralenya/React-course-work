@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import { MoviesContainer, Form } from './components';
+import {
+  MoviesContainer, Form, Footer, MovieControl,
+} from './components';
 
 export function App() {
   return (
@@ -12,7 +14,9 @@ export function App() {
         <span>Find your movie</span>
         <Form />
       </div>
+      <MovieControl />
       <MoviesContainer />
+      <Footer />
     </div>
   );
 }

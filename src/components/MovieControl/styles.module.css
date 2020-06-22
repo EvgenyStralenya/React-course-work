@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 15%;
+	background-color: lightgray;
+}
+
+.sortOptions {
+	width: 35%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.sortOptions span {
+	margin-right: 30px;
+}
