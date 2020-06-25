@@ -4,6 +4,7 @@
   list-style-type: none;
   box-sizing: border-box;
   outline: none;
+  text-decoration: none;
 }
 
 body {

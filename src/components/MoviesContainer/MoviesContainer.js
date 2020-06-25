@@ -26,13 +26,21 @@ export const MoviesContainer = () => {
     return (
       <div className={styles.container}>
         {
-      dataMovies.map(({
-        id, title, release_date, poster_path, genres,
-      }) => {
-        return <MoviesItem key={id} title={title} releaseDate={release_date} poster={poster_path} genres={genres} />;
-      })
-    }
-
+          dataMovies.map(({
+            id, title, release_date: releaseDate, poster_path: poster, genres,
+          }) => {
+            return (
+              <MoviesItem
+                key={id}
+                id={id}
+                title={title}
+                releaseDate={releaseDate}
+                poster={poster}
+                genres={genres}
+              />
+            );
+          })
+        }
       </div>
     );
   };

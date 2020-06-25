@@ -3,6 +3,8 @@
 	text-align: start;
 	flex-basis: 29%;
 	margin: 0 15px 15px;
+	cursor: pointer;
+	color: black;
 }
 
 .poster {

@@ -10,7 +10,7 @@ export const Form = () => {
   const searchOption = useSelector((state) => state.searchOption);
   const inputValue = useSelector((state) => state.inputValue);
 
-  const onClick = (option) => {
+  const onClickOptionButton = (option) => {
     dispatch({ type: CHANGE_STATE_SEARCH_OPTION, payload: option });
   };
 
@@ -29,12 +29,12 @@ export const Form = () => {
 
   return (
     <form onSubmit={onSubmit} className={styles.container}>
-      <input onChange={onChange} className={styles.input} placeholder="Я ищу..." value={inputValue} />
+      <input onChange={onChange} className={styles.input} placeholder="Find your movie" value={inputValue} />
       <div className={styles.buttonPanel}>
         <div className={styles.searchOptions}>
           <span>Search by</span>
-          <Button onClick={() => onClick('title')} type="searchOptionsButton" isActive={(searchOption === 'title')}>Title</Button>
-          <Button onClick={() => onClick('genres')} type="searchOptionsButton" isActive={(searchOption === 'genres')}>Genre</Button>
+          <Button onClick={() => onClickOptionButton('title')} type="searchOptionsButton" isActive={(searchOption === 'title')}>Title</Button>
+          <Button onClick={() => onClickOptionButton('genres')} type="searchOptionsButton" isActive={(searchOption === 'genres')}>Genre</Button>
         </div>
         <Button onClick={onClickSearchButton} type="searchButton">Search</Button>
       </div>

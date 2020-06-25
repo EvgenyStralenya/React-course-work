@@ -1,22 +1,20 @@
 import React from 'react';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
 import {
-  MoviesContainer, Form, Footer, MovieControl,
+  AppMovie, Modal,
 } from './components';
 
 export function App() {
   return (
     <div className="App">
-      <div className="header">
-        <div className="logo">
-          Netflixroulette
-        </div>
-        <span>Find your movie</span>
-        <Form />
-      </div>
-      <MovieControl />
-      <MoviesContainer />
-      <Footer />
+      <Switch>
+        <AppMovie>
+          <Route path="id">
+            <Modal />
+          </Route>
+        </AppMovie>
+      </Switch>
     </div>
   );
 }

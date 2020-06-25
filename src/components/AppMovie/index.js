@@ -1,0 +1,1 @@
+export { AppMovie } from './AppMovie';

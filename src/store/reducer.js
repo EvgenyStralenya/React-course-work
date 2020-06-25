@@ -1,16 +1,17 @@
 import {
   CHANGE_STATE_SEARCH_OPTION, CHANGE_STATE_SORT_OPTION, SET_INPUT_VALUE, GET_MOVIE_REQUEST,
-  GET_MOVIE_SUCCESS, GET_MOVIE_FAILURE,
+  GET_MOVIE_SUCCESS, GET_MOVIE_FAILURE, CHANGE_STATE_MODAL_WINDOW,
 } from './actions';
 
 const initialState = {
   inputValue: '',
   searchOption: 'title',
-  sortOption: 'release_date',
+  sortOption: '',
   dataMovies: [],
   totalMovies: 0,
   loading: false,
   error: null,
+  modal: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -48,9 +49,8 @@ export const reducer = (state = initialState, action) => {
         {
           ...state,
           dataMovies: action.payload.dataMovies,
-          loading: false,
           totalMovies: action.payload.totalMovies,
-
+          loading: false,
         }
       );
     case GET_MOVIE_FAILURE:
@@ -59,6 +59,13 @@ export const reducer = (state = initialState, action) => {
           ...state,
           error: action.payload,
           loading: false,
+        }
+      );
+    case CHANGE_STATE_MODAL_WINDOW:
+      return (
+        {
+          ...state,
+          modal: !state.modal,
         }
       );
     default: return state;

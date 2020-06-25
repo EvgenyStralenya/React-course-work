@@ -4,9 +4,10 @@ import { GET_MOVIE_REQUEST, GET_MOVIE_SUCCESS, GET_MOVIE_FAILURE } from './actio
 export const moviesMiddleware = (store) => (next) => (action) => {
   const inputValue = action.payload && action.payload.inputValue;
   const searchOption = action.payload && action.payload.searchOption;
+  const sortOption = action.payload && action.payload.sortOption;
 
   if (action.type === GET_MOVIE_REQUEST) {
-    getMovies(inputValue, searchOption).then((responseMovies) => {
+    getMovies(inputValue, searchOption, sortOption).then((responseMovies) => {
       const { data: dataMovies, total: totalMovies } = responseMovies;
       store.dispatch({ type: GET_MOVIE_SUCCESS, payload: { dataMovies, totalMovies } });
     })
