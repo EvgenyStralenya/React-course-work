@@ -8,12 +8,58 @@
 	display: flex;
 	align-items:center ;
 	justify-content: center;
-	height: 100vh;
+	color: #fff;
+	font-family: cursive;
 }
   
-.container .modalWindow {
-	height: 400px;
+.modalWindow {
+	position: relative;
+	height: 500px;
 	width: 700px;
-	background-color: #fff;
+	border: 10px solid white;
 	border-radius: 5px;
+	background-color: #fff;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center 30%;
+	overflow: auto;
+}
+
+.modalWindow::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 2;
+}
+
+.modalWindowContainer {
+	position: relative;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	z-index: 3;
+}
+
+.movieTitle {
+	font-size: 30px;
+	font-weight: 900;
+	margin-bottom: 25px;
+}
+
+.movieOverview {
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.movieBudget {
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+.movieRating {
+	font-size: 25px;
 }

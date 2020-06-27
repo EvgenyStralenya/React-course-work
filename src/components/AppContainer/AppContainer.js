@@ -1,10 +1,11 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import {
-  MoviesContainer, Form, Footer, MovieControl,
+  MoviesContainer, Form, Footer, MovieControl, Modal,
 } from '..';
 import styles from './styles.module.css';
 
-export const AppMovie = ({ children }) => {
+export const AppContainer = () => {
   return (
     <div>
       <div className={styles.header}>
@@ -17,7 +18,7 @@ export const AppMovie = ({ children }) => {
       <MovieControl />
       <MoviesContainer />
       <Footer />
-      {children}
+      <Route path="/:id" component={Modal} />
     </div>
 
   );

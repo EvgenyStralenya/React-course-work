@@ -9,6 +9,7 @@ export const MoviesContainer = () => {
 
   useEffect(() => {
     dispatch({ type: GET_MOVIE_REQUEST });
+    window.addEventListener('scroll', onScroll);
   }, [dispatch]);
 
   const dataMovies = useSelector((state) => state.dataMovies);
@@ -21,7 +22,6 @@ export const MoviesContainer = () => {
   const renderFailure = () => {
     return (<div className={styles.container}>{error}</div>);
   };
-
   const renderMain = () => {
     return (
       <div className={styles.container}>
@@ -45,12 +45,21 @@ export const MoviesContainer = () => {
     );
   };
 
+  const onScroll = () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.clientHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (windowHeight + scrollTop >= documentHeight - 100 && !loading) {
+      console.log('hello');
+    }
+  };
+
   return (
     <div>
       {
         loading ? renderLoading() : error ? renderFailure() : renderMain()
       }
-
     </div>
 
   );

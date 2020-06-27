@@ -1,6 +1,7 @@
 import {
   CHANGE_STATE_SEARCH_OPTION, CHANGE_STATE_SORT_OPTION, SET_INPUT_VALUE, GET_MOVIE_REQUEST,
-  GET_MOVIE_SUCCESS, GET_MOVIE_FAILURE, CHANGE_STATE_MODAL_WINDOW,
+  GET_MOVIE_SUCCESS, GET_MOVIE_FAILURE, CHANGE_STATE_MODAL_WINDOW, GET_MOVIE_BY_ID_REQUEST,
+  GET_MOVIE_BY_ID_SUCCESS,
 } from './actions';
 
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
   totalMovies: 0,
   loading: false,
   error: null,
-  modal: false,
+  visibilityModal: false,
+  dataMovieById: {},
 };
 
 export const reducer = (state = initialState, action) => {
@@ -65,7 +67,22 @@ export const reducer = (state = initialState, action) => {
       return (
         {
           ...state,
-          modal: !state.modal,
+          visibilityModal: !state.visibilityModal,
+        }
+      );
+    case GET_MOVIE_BY_ID_REQUEST:
+      return (
+        {
+          ...state,
+          loading: true,
+        }
+      );
+    case GET_MOVIE_BY_ID_SUCCESS:
+      return (
+        {
+          ...state,
+          dataMovieById: action.payload,
+          loading: false,
         }
       );
     default: return state;

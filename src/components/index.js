@@ -4,4 +4,4 @@ export { Form } from './Form';
 export { Footer } from './Footer';
 export { Modal } from './Modal';
 export { MovieControl } from './MovieControl';
-export { AppMovie } from './AppMovie';
+export { AppContainer } from './AppContainer';
