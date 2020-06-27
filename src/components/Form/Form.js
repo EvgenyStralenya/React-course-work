@@ -9,18 +9,29 @@ export const Form = () => {
 
   const searchOption = useSelector((state) => state.searchOption);
   const inputValue = useSelector((state) => state.inputValue);
+  const offsetMovie = useSelector((state) => state.offsetMovie);
 
   const onClickOptionButton = (option) => {
     dispatch({ type: CHANGE_STATE_SEARCH_OPTION, payload: option });
   };
 
   const onClickSearchButton = () => {
-    dispatch({ type: GET_MOVIE_REQUEST, payload: { inputValue, searchOption } });
+    dispatch({
+      type: GET_MOVIE_REQUEST,
+      payload: {
+        inputValue, searchOption, offsetMovie,
+      },
+    });
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch({ type: GET_MOVIE_REQUEST, payload: { inputValue, searchOption } });
+    dispatch({
+      type: GET_MOVIE_REQUEST,
+      payload: {
+        inputValue, searchOption, offsetMovie,
+      },
+    });
   };
 
   const onChange = (event) => {
