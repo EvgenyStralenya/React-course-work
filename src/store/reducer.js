@@ -1,7 +1,7 @@
 import {
-  CHANGE_STATE_SEARCH_OPTION, CHANGE_STATE_SORT_OPTION, SET_INPUT_VALUE, GET_MOVIE_REQUEST,
-  GET_MOVIE_SUCCESS, GET_MOVIE_FAILURE, CHANGE_STATE_MODAL_WINDOW, GET_MOVIE_BY_ID_REQUEST,
-  GET_MOVIE_BY_ID_SUCCESS, ADD_MOVIE_TO_STORE_SUCCESS,
+  CHANGE_STATE_SEARCH_OPTION, CHANGE_STATE_SORT_OPTION, SET_INPUT_VALUE, RESET_STATE_SORT_OPTION,
+  GET_MOVIE_SUCCESS, GET_MOVIE_FAILURE, GET_MOVIE_BY_ID_REQUEST, GET_MOVIE_BY_ID_SUCCESS,
+  ADD_MOVIE_TO_STORE_SUCCESS, RESET_DATA_MOVIE_MODAL,
 } from './actions';
 
 const initialState = {
@@ -12,8 +12,7 @@ const initialState = {
   totalMovies: 0,
   loading: false,
   error: null,
-  visibilityModal: false,
-  dataMovieById: {},
+  dataMovieById: null,
   offsetMovie: 0,
 };
 
@@ -38,13 +37,14 @@ export const reducer = (state = initialState, action) => {
         {
           ...state,
           sortOption: action.payload,
+          offsetMovie: 0,
         }
       );
-    case GET_MOVIE_REQUEST:
+    case RESET_STATE_SORT_OPTION:
       return (
         {
           ...state,
-          loading: true,
+          sortOption: '',
         }
       );
     case GET_MOVIE_SUCCESS:
@@ -62,13 +62,6 @@ export const reducer = (state = initialState, action) => {
           ...state,
           error: action.payload,
           loading: false,
-        }
-      );
-    case CHANGE_STATE_MODAL_WINDOW:
-      return (
-        {
-          ...state,
-          visibilityModal: !state.visibilityModal,
         }
       );
     case GET_MOVIE_BY_ID_REQUEST:
@@ -93,6 +86,13 @@ export const reducer = (state = initialState, action) => {
           dataMovies: [...state.dataMovies, ...action.payload.dataMovies],
           loading: false,
           offsetMovie: action.payload.offsetMovie,
+        }
+      );
+    case RESET_DATA_MOVIE_MODAL:
+      return (
+        {
+          ...state,
+          dataMovieById: null,
         }
       );
     default: return state;

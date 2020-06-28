@@ -9,6 +9,7 @@ export const moviesMiddleware = (store) => (next) => (action) => {
   const searchOption = action.payload && action.payload.searchOption;
   const sortOption = action.payload && action.payload.sortOption;
   const movieId = action.payload;
+  console.log(sortOption);
 
   const state = store.getState();
   let { offsetMovie } = state;

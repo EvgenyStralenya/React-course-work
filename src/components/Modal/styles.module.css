@@ -10,8 +10,11 @@
 	justify-content: center;
 	color: #fff;
 	font-family: cursive;
+
 }
   
+
+
 .modalWindow {
 	position: relative;
 	height: 500px;
@@ -23,6 +26,17 @@
 	background-repeat: no-repeat;
 	background-position: center 30%;
 	overflow: auto;
+	animation-name: fadeIn;
+	animation-duration: 0.3s;
+}
+@keyframes fadeIn {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
+	}
 }
 
 .modalWindow::after {
@@ -48,9 +62,16 @@
 	font-size: 30px;
 	font-weight: 900;
 	margin-bottom: 25px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid white;
 }
 
 .movieOverview {
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+.movieGenres {
 	font-size: 18px;
 	margin-bottom: 15px;
 }
@@ -61,5 +82,7 @@
 }
 
 .movieRating {
-	font-size: 25px;
+	font-size: 20px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid white;
 }

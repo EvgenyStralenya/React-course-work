@@ -6,6 +6,7 @@
 	color: white;
 	cursor: pointer;
 	padding: 2px 15px;
+	border: none;
 }
 
 .button:hover {
@@ -31,6 +32,13 @@
 	background-color: red;
 	text-transform: uppercase;
 	padding: 5px 70px;
+	transition: 0.3s;
+}
+
+.closeModalButton {
+	z-index: 3;
+	background-color: grey;
+	padding: 5px 20px;
 	transition: 0.3s;
 }
 

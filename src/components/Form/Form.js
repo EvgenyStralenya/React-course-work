@@ -2,7 +2,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles.module.css';
 import { Button } from '../Button';
-import { CHANGE_STATE_SEARCH_OPTION, SET_INPUT_VALUE, GET_MOVIE_REQUEST } from '../../store/actions';
+import {
+  CHANGE_STATE_SEARCH_OPTION, SET_INPUT_VALUE, GET_MOVIE_REQUEST, RESET_STATE_SORT_OPTION,
+} from '../../store/actions';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ export const Form = () => {
         inputValue, searchOption, offsetMovie,
       },
     });
+    dispatch({ type: RESET_STATE_SORT_OPTION });
   };
 
   const onSubmit = (event) => {
@@ -32,6 +35,7 @@ export const Form = () => {
         inputValue, searchOption, offsetMovie,
       },
     });
+    dispatch({ type: RESET_STATE_SORT_OPTION });
   };
 
   const onChange = (event) => {

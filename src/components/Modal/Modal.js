@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { GET_MOVIE_BY_ID_REQUEST } from '../../store/actions';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
+import { GET_MOVIE_BY_ID_REQUEST, RESET_DATA_MOVIE_MODAL } from '../../store/actions';
 import { Button } from '../Button';
 import styles from './styles.module.css';
 
@@ -11,16 +11,24 @@ export const Modal = () => {
 
   useEffect(() => {
     dispatch({ type: GET_MOVIE_BY_ID_REQUEST, payload: id });
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const dataMovieById = useSelector((state) => state.dataMovieById);
+  const history = useHistory();
+  const onClick = () => {
+    dispatch({ type: RESET_DATA_MOVIE_MODAL });
+    history.goBack();
+  };
+  if (dataMovieById !== null && Object.keys(dataMovieById).length === 0) {
+    return <Redirect to={{ pathname: '/not-found' }} />;
+  }
+
   const {
     title, genres = [], overview, poster_path: poster, vote_average: rating, budget,
-  } = dataMovieById;
-  const onClick = () => {};
+  } = dataMovieById || {};
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={onClick}>
       <div className={styles.modalWindow} style={{ backgroundImage: `url(${poster})` }}>
         <div className={styles.modalWindowContainer}>
           <span className={styles.movieTitle}>{title}</span>
@@ -31,7 +39,7 @@ export const Modal = () => {
           <span className={styles.movieBudget}>{`Budget: ${budget}$`}</span>
           <span className={styles.movieRating}>{`Rating: ${rating}`}</span>
         </div>
-        <Button onClick={onClick}>Close</Button>
+        <Button onClick={onClick} type="closeModalButton">Close</Button>
       </div>
     </div>
   );

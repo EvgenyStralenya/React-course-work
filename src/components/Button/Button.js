@@ -15,17 +15,20 @@ export const Button = ({
     case 'searchButton':
       style = styles.searchButton;
       break;
+    case 'closeModalButton':
+      style = styles.closeModalButton;
+      break;
     default:
       style = styles.button;
   }
 
   function getClassNames() {
-    return `${styles.button} ${style} ${isActive === true ? styles.activeButton : ''}`;
+    return `${styles.button} ${style} ${isActive ? styles.activeButton : ''}`;
   }
 
   return (
-    <div className={getClassNames()} onClick={onClick}>
+    <button type="button" className={getClassNames()} onClick={onClick}>
       {children}
-    </div>
+    </button>
   );
 };

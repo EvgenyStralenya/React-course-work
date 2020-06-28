@@ -5,29 +5,21 @@ import { GET_MOVIE_REQUEST, ADD_MOVIE_TO_STORE_REQUEST } from '../../store/actio
 import styles from './styles.module.css';
 
 export const MoviesContainer = () => {
-  const offsetMovie = useSelector((state) => state.offsetMovie);
   const dataMovies = useSelector((state) => state.dataMovies);
-  const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
   let isScroll = false;
 
   useEffect(() => {
-    dispatch({ type: GET_MOVIE_REQUEST, payload: { offsetMovie } });
+    dispatch({ type: GET_MOVIE_REQUEST });
   }, [dispatch]);
 
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  });
-
-  const renderLoading = () => {
-    return (<div className={styles.container}>LOADING...</div>);
-  };
   const renderFailure = () => {
-    return (<div className={styles.container}>{error}</div>);
+    return (
+      <div className={styles.container}>
+        <div className={styles.errorMessage}>{error}</div>
+      </div>
+    );
   };
   const renderMain = () => {
     return (
@@ -58,18 +50,24 @@ export const MoviesContainer = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (isScroll) return;
 
-    if (windowHeight + scrollTop >= documentHeight - 100) {
+    if (windowHeight + scrollTop >= documentHeight - 200) {
       dispatch({ type: ADD_MOVIE_TO_STORE_REQUEST });
       isScroll = !isScroll;
     }
   };
 
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  });
+
   return (
     <div>
       {
-        loading ? renderLoading() : error ? renderFailure() : renderMain()
+        error ? renderFailure() : renderMain()
       }
     </div>
-
   );
 };

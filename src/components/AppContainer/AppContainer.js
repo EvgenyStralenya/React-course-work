@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 
 export const AppContainer = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.logo}>
           Netflixroulette

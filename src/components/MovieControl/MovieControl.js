@@ -21,6 +21,7 @@ export const MovieControl = () => {
         inputValue, searchOption, sortOption: option, offsetMovie,
       },
     });
+    console.log(option);
   };
 
   return (
