@@ -8,7 +8,9 @@ export const MoviesItem = ({
   return (
     <Link to={`/${id}`}>
       <div className={styles.container}>
-        <div className={styles.posterContainer} style={{ backgroundImage: `url(${poster})` }} />
+        <div className={styles.posterWrapper}>
+          <div className={styles.posterContainer} style={{ backgroundImage: `url(${poster})` }} />
+        </div>
         <div className={styles.movieDescription}>
           <div className={styles.title}>
             <h3>{title.toUpperCase()}</h3>
