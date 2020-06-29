@@ -4,6 +4,7 @@
 	flex-direction: column;
 	padding: 15px 15%;
 	background-color: rgba(0, 0, 0, 0.7);
+	flex: 0 0 auto;
 }
   
 .container .logo {

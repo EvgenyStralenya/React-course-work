@@ -4,6 +4,7 @@
 	align-items: center;
 	padding: 15px 15%;
 	background-color: lightgray;
+	flex: 0 0 auto;
 }
 
 .sortOptions {

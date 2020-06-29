@@ -11,17 +11,15 @@ export const MovieControl = () => {
   const searchOption = useSelector((state) => state.searchOption);
   const sortOption = useSelector((state) => state.sortOption);
   const totalMovies = useSelector((state) => state.totalMovies);
-  const offsetMovie = useSelector((state) => state.offsetMovie);
 
   const onClickSortButton = (option) => {
     dispath({ type: CHANGE_STATE_SORT_OPTION, payload: option });
     dispath({
       type: GET_MOVIE_REQUEST,
       payload: {
-        inputValue, searchOption, sortOption: option, offsetMovie,
+        inputValue, searchOption, sortOption: option,
       },
     });
-    console.log(option);
   };
 
   return (

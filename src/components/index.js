@@ -5,3 +5,4 @@ export { Footer } from './Footer';
 export { Modal } from './Modal';
 export { MovieControl } from './MovieControl';
 export { AppContainer } from './AppContainer';
+export { NotFound } from './NotFound';

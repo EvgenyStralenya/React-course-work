@@ -18,6 +18,9 @@ export const Button = ({
     case 'closeModalButton':
       style = styles.closeModalButton;
       break;
+    case 'homeButton':
+      style = styles.homeButton;
+      break;
     default:
       style = styles.button;
   }

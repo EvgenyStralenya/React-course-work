@@ -6,6 +6,9 @@ import styles from './styles.module.css';
 
 export const MoviesContainer = () => {
   const dataMovies = useSelector((state) => state.dataMovies);
+  const inputValue = useSelector((state) => state.inputValue);
+  const searchOption = useSelector((state) => state.searchOption);
+  const sortOption = useSelector((state) => state.sortOption);
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
   let isScroll = false;
@@ -16,14 +19,14 @@ export const MoviesContainer = () => {
 
   const renderFailure = () => {
     return (
-      <div className={styles.container}>
+      <div className={styles.wrapper}>
         <div className={styles.errorMessage}>{error}</div>
       </div>
     );
   };
   const renderMain = () => {
     return (
-      <div className={styles.container}>
+      <div className={styles.wrapper}>
         {
           dataMovies.map(({
             id, title, release_date: releaseDate, poster_path: poster, genres,
@@ -51,7 +54,12 @@ export const MoviesContainer = () => {
     if (isScroll) return;
 
     if (windowHeight + scrollTop >= documentHeight - 200) {
-      dispatch({ type: ADD_MOVIE_TO_STORE_REQUEST });
+      dispatch({
+        type: ADD_MOVIE_TO_STORE_REQUEST,
+        payload: {
+          inputValue, searchOption, sortOption,
+        },
+      });
       isScroll = !isScroll;
     }
   };
@@ -64,7 +72,7 @@ export const MoviesContainer = () => {
   });
 
   return (
-    <div>
+    <div className={styles.container}>
       {
         error ? renderFailure() : renderMain()
       }
