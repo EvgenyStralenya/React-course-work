@@ -3,8 +3,8 @@ import styles from './styles.module.css';
 
 export const Footer = () => {
   return (
-    <div className={styles.container}>
+    <footer className={styles.container}>
       <div className={styles.logo}>Netflixroulette</div>
-    </div>
+    </footer>
   );
 };

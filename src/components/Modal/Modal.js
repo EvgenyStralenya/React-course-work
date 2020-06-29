@@ -28,10 +28,13 @@ export const Modal = () => {
   } = dataMovieById || {};
 
   return (
-    <div className={styles.container} onClick={onClick}>
+    <div className={styles.container}>
       <div className={styles.modalWindow} style={{ backgroundImage: `url(${poster})` }}>
         <div className={styles.modalWindowContainer}>
-          <span className={styles.movieTitle}>{title}</span>
+          <div className={styles.movieTitle}>
+            {title}
+            <Button onClick={onClick} type="closeModalButton">&times;</Button>
+          </div>
           <span className={styles.movieGenres}>
             {genres.join(' & ')}
           </span>
@@ -39,7 +42,6 @@ export const Modal = () => {
           <span className={styles.movieBudget}>{`Budget: ${budget}$`}</span>
           <span className={styles.movieRating}>{`Rating: ${rating}`}</span>
         </div>
-        <Button onClick={onClick} type="closeModalButton">Close</Button>
       </div>
     </div>
   );

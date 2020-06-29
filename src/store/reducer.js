@@ -14,6 +14,7 @@ const initialState = {
   error: null,
   dataMovieById: null,
   offsetMovie: 0,
+  limitMovie: 12,
 };
 
 export const reducer = (state = initialState, action) => {

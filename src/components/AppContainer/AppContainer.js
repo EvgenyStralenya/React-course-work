@@ -8,13 +8,13 @@ import styles from './styles.module.css';
 export const AppContainer = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
+      <header className={styles.header}>
         <div className={styles.logo}>
           Netflixroulette
         </div>
         <span>Find your movie</span>
         <Form />
-      </div>
+      </header>
       <MovieControl />
       <MoviesContainer />
       <Footer />

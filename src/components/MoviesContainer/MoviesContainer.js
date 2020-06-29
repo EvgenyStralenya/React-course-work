@@ -72,10 +72,10 @@ export const MoviesContainer = () => {
   });
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       {
         error ? renderFailure() : renderMain()
       }
-    </div>
+    </main>
   );
 };

@@ -9,13 +9,13 @@ export const moviesMiddleware = (store) => (next) => (action) => {
   const searchOption = action.payload && action.payload.searchOption;
   const sortOption = action.payload && action.payload.sortOption;
   const movieId = action.payload;
-  console.log(sortOption);
 
   const state = store.getState();
   let { offsetMovie } = state;
+  const { limitMovie } = state;
 
   if (action.type === GET_MOVIE_REQUEST) {
-    getMovies(inputValue, searchOption, sortOption, offsetMovie)
+    getMovies(inputValue, searchOption, sortOption, offsetMovie, limitMovie)
       .then((responseMovies) => {
         const { data: dataMovies, total: totalMovies } = responseMovies;
         store.dispatch({ type: GET_MOVIE_SUCCESS, payload: { dataMovies, totalMovies } });
@@ -26,8 +26,8 @@ export const moviesMiddleware = (store) => (next) => (action) => {
   }
 
   if (action.type === ADD_MOVIE_TO_STORE_REQUEST) {
-    offsetMovie += 12;
-    getMovies(inputValue, searchOption, sortOption, offsetMovie)
+    offsetMovie += limitMovie;
+    getMovies(inputValue, searchOption, sortOption, offsetMovie, limitMovie)
       .then((responseMovies) => {
         const { data: dataMovies } = responseMovies;
         store.dispatch({ type: ADD_MOVIE_TO_STORE_SUCCESS, payload: { dataMovies, offsetMovie } });

@@ -4,15 +4,16 @@
 	align-items: center;
 	padding: 15px 15%;
 	background-color: lightgray;
-	flex: 0 0 auto;
 }
 
 .sortOptions {
-	width: 35%;
 	display: flex;
-	justify-content: space-between;
+	flex: 1;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .sortOptions span {
 	margin-right: 30px;
+	font-weight: 600;
 }
