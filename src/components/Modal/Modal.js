@@ -20,7 +20,7 @@ export const Modal = () => {
     history.goBack();
   };
   if (dataMovieById !== null && Object.keys(dataMovieById).length === 0) {
-    return <Redirect to={{ pathname: '/not-found' }} />;
+    return <Redirect to={{ pathname: '/React-course-work/not-found' }} />;
   }
 
   const {

@@ -6,7 +6,7 @@ export const MoviesItem = ({
   id, title, releaseDate, poster, genres,
 }) => {
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/React-course-work/${id}`}>
       <div className={styles.container}>
         <div className={styles.posterWrapper}>
           <div className={styles.posterContainer} style={{ backgroundImage: `url(${poster})` }} />

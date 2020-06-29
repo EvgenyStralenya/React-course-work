@@ -9,7 +9,7 @@ export const NotFound = () => {
       <div className={styles.errorWrapper}>
         <span className={styles.codeError}>404</span>
         <span className={styles.textError}>Page not found</span>
-        <Link to="/"><Button type="homeButton">Home</Button></Link>
+        <Link to="/React-course-work"><Button type="homeButton">Home</Button></Link>
       </div>
     </div>
   );

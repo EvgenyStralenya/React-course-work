@@ -18,7 +18,7 @@ export const AppContainer = () => {
       <MovieControl />
       <MoviesContainer />
       <Footer />
-      <Route path="/:id" component={Modal} />
+      <Route path="/React-course-work/:id" component={Modal} />
     </div>
 
   );
