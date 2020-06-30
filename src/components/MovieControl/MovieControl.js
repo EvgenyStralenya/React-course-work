@@ -6,11 +6,9 @@ import styles from './styles.module.css';
 
 export const MovieControl = () => {
   const dispath = useDispatch();
-
-  const inputValue = useSelector((state) => state.inputValue);
-  const searchOption = useSelector((state) => state.searchOption);
-  const sortOption = useSelector((state) => state.sortOption);
-  const totalMovies = useSelector((state) => state.totalMovies);
+  const {
+    inputValue, searchOption, sortOption, totalMovies,
+  } = useSelector((state) => state);
 
   const onClickSortButton = (option) => {
     dispath({ type: CHANGE_STATE_SORT_OPTION, payload: option });

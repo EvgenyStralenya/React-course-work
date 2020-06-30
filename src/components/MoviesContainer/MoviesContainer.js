@@ -5,11 +5,9 @@ import { GET_MOVIE_REQUEST, ADD_MOVIE_TO_STORE_REQUEST } from '../../store/actio
 import styles from './styles.module.css';
 
 export const MoviesContainer = () => {
-  const dataMovies = useSelector((state) => state.dataMovies);
-  const inputValue = useSelector((state) => state.inputValue);
-  const searchOption = useSelector((state) => state.searchOption);
-  const sortOption = useSelector((state) => state.sortOption);
-  const error = useSelector((state) => state.error);
+  const {
+    dataMovies, inputValue, searchOption, sortOption, error,
+  } = useSelector((state) => state);
   const dispatch = useDispatch();
   let isScroll = false;
 

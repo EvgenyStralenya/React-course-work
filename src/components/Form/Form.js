@@ -9,9 +9,9 @@ import {
 export const Form = () => {
   const dispatch = useDispatch();
 
-  const searchOption = useSelector((state) => state.searchOption);
-  const inputValue = useSelector((state) => state.inputValue);
-  const offsetMovie = useSelector((state) => state.offsetMovie);
+  const {
+    inputValue, searchOption, offsetMovie,
+  } = useSelector((state) => state);
 
   const onClickOptionButton = (option) => {
     dispatch({ type: CHANGE_STATE_SEARCH_OPTION, payload: option });

@@ -6,6 +6,10 @@
 	background-color: lightgray;
 }
 
+.movieCounter {
+	margin-right: 10px;
+}
+
 .sortOptions {
 	display: flex;
 	flex: 1;
@@ -14,6 +18,6 @@
 }
 
 .sortOptions span {
-	margin-right: 30px;
+	margin-right: 10px;
 	font-weight: 600;
 }

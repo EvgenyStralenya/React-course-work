@@ -6,8 +6,8 @@ export function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/React-course-work/not-found" component={NotFound} />
-        <Route path="/React-course-work" component={AppContainer} />
+        <Route path="/not-found" component={NotFound} />
+        <Route path="/" component={AppContainer} />
       </Switch>
     </div>
   );

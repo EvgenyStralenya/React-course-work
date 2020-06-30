@@ -4,6 +4,12 @@
 	margin: 0 10px 25px;
 	cursor: pointer;
 	color: black;
+	transition: 0.3s;
+}
+
+.container:hover {
+	transform: scale(1.1);
+	transition: 0.3s;
 }
 
 .posterContainer {
@@ -14,7 +20,7 @@
 }
 
 .posterWrapper {
-	background-image: url('https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-21.png');
+	background-image: url('https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;

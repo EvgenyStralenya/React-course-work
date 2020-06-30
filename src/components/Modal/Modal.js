@@ -19,8 +19,9 @@ export const Modal = () => {
     dispatch({ type: RESET_DATA_MOVIE_MODAL });
     history.goBack();
   };
+
   if (dataMovieById !== null && Object.keys(dataMovieById).length === 0) {
-    return <Redirect to={{ pathname: '/React-course-work/not-found' }} />;
+    return <Redirect to={{ pathname: '/not-found' }} />;
   }
 
   const {
