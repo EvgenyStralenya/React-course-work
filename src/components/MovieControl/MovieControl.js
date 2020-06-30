@@ -25,8 +25,10 @@ export const MovieControl = () => {
       <div className={styles.movieCounter}>{`${totalMovies} movies found`}</div>
       <div className={styles.sortOptions}>
         <span>Sort by:</span>
-        <Button onClick={() => onClickSortButton('release_date')} type="sortOptionsButton" isActive={(sortOption === 'release_date')}>Release date</Button>
-        <Button onClick={() => onClickSortButton('vote_average')} type="sortOptionsButton" isActive={(sortOption === 'vote_average')}>Rating</Button>
+        <div className={styles.buttonWrapper}>
+          <Button onClick={() => onClickSortButton('release_date')} type="sortOptionsButton" isActive={(sortOption === 'release_date')}>Release date</Button>
+          <Button onClick={() => onClickSortButton('vote_average')} type="sortOptionsButton" isActive={(sortOption === 'vote_average')}>Rating</Button>
+        </div>
       </div>
     </div>
   );

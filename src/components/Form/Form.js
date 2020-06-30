@@ -48,8 +48,10 @@ export const Form = () => {
       <div className={styles.buttonPanel}>
         <div className={styles.searchOptions}>
           <span>Search by</span>
-          <Button onClick={() => onClickOptionButton('title')} type="searchOptionsButton" isActive={(searchOption === 'title')}>Title</Button>
-          <Button onClick={() => onClickOptionButton('genres')} type="searchOptionsButton" isActive={(searchOption === 'genres')}>Genre</Button>
+          <div className={styles.buttonWrapper}>
+            <Button onClick={() => onClickOptionButton('title')} type="searchOptionsButton" isActive={(searchOption === 'title')}>Title</Button>
+            <Button onClick={() => onClickOptionButton('genres')} type="searchOptionsButton" isActive={(searchOption === 'genres')}>Genre</Button>
+          </div>
         </div>
         <Button onClick={onClickSearchButton} type="searchButton">Search</Button>
       </div>

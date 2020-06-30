@@ -15,9 +15,16 @@
 	flex: 1;
 	justify-content: flex-end;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .sortOptions span {
 	margin-right: 10px;
 	font-weight: 600;
+}
+
+.buttonWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
 }

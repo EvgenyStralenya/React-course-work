@@ -27,10 +27,16 @@
 .searchOptions {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .searchOptions span {
 	text-transform: uppercase;
 	margin: auto 20px auto 0;
 	color: white;
+}
+
+.buttonWrapper {
+	display: flex;
+	flex-wrap: wrap;
 }
