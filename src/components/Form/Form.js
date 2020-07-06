@@ -10,32 +10,22 @@ export const Form = () => {
   const dispatch = useDispatch();
 
   const {
-    inputValue, searchOption, offsetMovie,
+    inputValue, searchOption,
   } = useSelector((state) => state);
 
   const onClickOptionButton = (option) => {
     dispatch({ type: CHANGE_STATE_SEARCH_OPTION, payload: option });
   };
 
-  const onClickSearchButton = () => {
-    dispatch({
-      type: GET_MOVIE_REQUEST,
-      payload: {
-        inputValue, searchOption, offsetMovie,
-      },
-    });
-    dispatch({ type: RESET_STATE_SORT_OPTION });
-  };
-
   const onSubmit = (event) => {
     event.preventDefault();
+    dispatch({ type: RESET_STATE_SORT_OPTION });
     dispatch({
       type: GET_MOVIE_REQUEST,
       payload: {
-        inputValue, searchOption, offsetMovie,
+        inputValue, searchOption,
       },
     });
-    dispatch({ type: RESET_STATE_SORT_OPTION });
   };
 
   const onChange = (event) => {
@@ -49,11 +39,11 @@ export const Form = () => {
         <div className={styles.searchOptions}>
           <span>Search by</span>
           <div className={styles.buttonWrapper}>
-            <Button onClick={() => onClickOptionButton('title')} type="searchOptionsButton" isActive={(searchOption === 'title')}>Title</Button>
-            <Button onClick={() => onClickOptionButton('genres')} type="searchOptionsButton" isActive={(searchOption === 'genres')}>Genre</Button>
+            <Button onClick={() => onClickOptionButton('title')} typeButton="searchOptionsButton" isActive={(searchOption === 'title')}>Title</Button>
+            <Button onClick={() => onClickOptionButton('genres')} typeButton="searchOptionsButton" isActive={(searchOption === 'genres')}>Genre</Button>
           </div>
         </div>
-        <Button onClick={onClickSearchButton} type="searchButton">Search</Button>
+        <Button typeButton="searchButton">Search</Button>
       </div>
     </form>
   );

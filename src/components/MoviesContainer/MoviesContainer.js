@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MoviesItem } from '../MoviesItem';
 import { GET_MOVIE_REQUEST, ADD_MOVIE_TO_STORE_REQUEST } from '../../store/actions';
@@ -9,7 +9,7 @@ export const MoviesContainer = () => {
     dataMovies, inputValue, searchOption, sortOption, error,
   } = useSelector((state) => state);
   const dispatch = useDispatch();
-  let isScroll = false;
+  const isScroll = useRef(false);
 
   useEffect(() => {
     dispatch({ type: GET_MOVIE_REQUEST });
@@ -26,7 +26,7 @@ export const MoviesContainer = () => {
     return (
       <div className={styles.wrapper}>
         {
-          dataMovies.map(({
+          (dataMovies.length === 0) ? 'Movies not found' : dataMovies.map(({
             id, title, release_date: releaseDate, poster_path: poster, genres,
           }) => {
             return (
@@ -45,11 +45,16 @@ export const MoviesContainer = () => {
     );
   };
 
+  if (isScroll.current) {
+    isScroll.current = !isScroll.current;
+  }
+
   const onScroll = () => {
     const windowHeight = window.innerHeight;
     const documentHeight = document.body.clientHeight;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (isScroll) return;
+
+    if (isScroll.current) return;
 
     if (windowHeight + scrollTop >= documentHeight - 200) {
       dispatch({
@@ -58,15 +63,13 @@ export const MoviesContainer = () => {
           inputValue, searchOption, sortOption,
         },
       });
-      isScroll = !isScroll;
+      isScroll.current = !isScroll.current;
+      window.removeEventListener('scroll', onScroll);
     }
   };
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
   });
 
   return (

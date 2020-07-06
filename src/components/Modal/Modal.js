@@ -34,7 +34,7 @@ export const Modal = () => {
         <div className={styles.modalWindowContainer}>
           <div className={styles.movieTitle}>
             {title}
-            <Button onClick={onClick} type="closeModalButton">&times;</Button>
+            <Button onClick={onClick} typeButton="closeModalButton">&times;</Button>
           </div>
           <span className={styles.movieGenres}>
             {genres.join(' & ')}

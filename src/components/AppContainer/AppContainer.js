@@ -1,8 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import {
-  MoviesContainer, Form, Footer, MovieControl, Modal,
-} from '..';
+import { MoviesContainer } from '../MoviesContainer';
+import { Form } from '../Form';
+import { Footer } from '../Footer';
+import { MovieControl } from '../MovieControl';
+import { Modal } from '../Modal';
 import styles from './styles.module.css';
 
 export const AppContainer = () => {

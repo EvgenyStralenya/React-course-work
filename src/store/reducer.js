@@ -46,6 +46,7 @@ export const reducer = (state = initialState, action) => {
         {
           ...state,
           sortOption: '',
+          offsetMovie: 0,
         }
       );
     case GET_MOVIE_SUCCESS:
